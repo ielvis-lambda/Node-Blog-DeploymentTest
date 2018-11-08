@@ -55,10 +55,10 @@ class App extends Component {
   // You'll need to make sure you have the right properties on state and pass them down to props.
 
   componentDidMount() {
-    axios
-      .get('https://fsw14-node-blog.herokuapp.com/api/posts')
-      .then(response => this.setState({ posts: response.data }))
-      .catch(error => console.log(error));
+    // axios
+    //   .get('https://fsw14-node-blog.herokuapp.com/api/posts')
+    //   .then(response => this.setState({ posts: response.data }))
+    //   .catch(error => console.log(error));
   }
 
   render() {
