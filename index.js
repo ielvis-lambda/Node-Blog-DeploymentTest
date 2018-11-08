@@ -1,6 +1,10 @@
+const cors = require('cors');
+const express = require('express');
+
+server.use(cors());
+server.use(express.json());
+
 const server = require('./api/server.js');
-const userDb = require('./data/helpers/userDb');
-const upperCaseThat = require('./middleware/upperCaseThat');
 const userRouter = require('./users/userRouter.js');
 const postsRouter = require('./posts/postsRouter');
 
