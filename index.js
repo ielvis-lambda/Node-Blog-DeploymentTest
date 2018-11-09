@@ -1,15 +1,13 @@
-const cors = require('cors');
 const express = require('express');
-
-server.use(cors());
-server.use(express.json());
+const cors = require('cors');
 
 const server = require('./api/server.js');
+
 const userRouter = require('./users/userRouter.js');
 const postsRouter = require('./posts/postsRouter');
 
-const port = process.env.PORT || 9000;
-server.listen(port, () => console.log(`\nAPI running on port ${port}\n`));
+server.use(cors());
+server.use(express.json());
 
 //USER METHODS
 server.use('/api/users/', userRouter);
@@ -29,3 +27,5 @@ server.put('/api/posts/:id', postsRouter);
 //A COMMIT TO SEE IF DEPLOY WORKS
 
 //check
+const port = process.env.PORT || 9000;
+server.listen(port, () => console.log(`\nAPI running on port ${port}\n`));
