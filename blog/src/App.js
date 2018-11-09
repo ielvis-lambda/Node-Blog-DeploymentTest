@@ -27,16 +27,16 @@ let TitleContainer = styled.h1`
   margin-bottom: -50px;
 `;
 
-let GuessButton = styled.button`
-  color: black;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  border: 2px solid gold;
-  background-color: white;
-  padding: 14px 28px;
-  font-size: 12px;
-  cursor: pointer;
-`;
+// let GuessButton = styled.button`
+//   color: black;
+//   margin-bottom: 20px;
+//   border-radius: 12px;
+//   border: 2px solid gold;
+//   background-color: white;
+//   padding: 14px 28px;
+//   font-size: 12px;
+//   cursor: pointer;
+// `;
 
 class App extends Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class App extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:9000/api/posts/')
+      .get('https://elvis-debug.herokuapp.com/api/posts/')
       .then(response => this.setState({ posts: response.data }))
       .catch(error => console.log(error));
   }
@@ -71,9 +71,8 @@ class App extends Component {
           </TitleContainer>
           {this.state.posts.map(post => {
             return (
-              <PostContainer key={post.id} title={post.title} contents={post.contents}>
-                <p>{post.title}</p>
-                <GuessButton>{post.contents}</GuessButton>
+              <PostContainer key={post.id} text={post.text}>
+                <p>{post.text}</p>
               </PostContainer>
             );
           })}
